@@ -52,20 +52,20 @@ public class MainActivity extends AppCompatActivity {
     int displayDpi = (int) (displayMetrics.density*160f);
     Toast toast = new Toast(this);
     toast.setView(view);
-    int width = displayMetrics.widthPixels;
+    int width = (int) (displayMetrics.widthPixels/displayMetrics.densityDpi);
     Log.d("TAG","Width::"+width);
     Log.d("TAG","y - Off::"+toast.getYOffset());
     Log.d("TAG","x-off::"+toast.getXOffset());
     if (displayDpi < 480) {
-      toast.setGravity(Gravity.BOTTOM| LEFT, getXOffsetForToast(width, (float) 0.84), 64);
+      toast.setGravity(Gravity.BOTTOM, getXOffsetForToast(width, (float) 0.84), 64);
     } else if (displayDpi < 599) {
-      toast.setGravity(Gravity.BOTTOM| LEFT, getXOffsetForToast(width, (float) 0.68), 64);
+      toast.setGravity(Gravity.BOTTOM, getXOffsetForToast(width, (float) 0.68), 64);
     } else if (displayDpi >= 600 && displayDpi < 959) {
-      toast.setGravity(Gravity.BOTTOM| LEFT, getXOffsetForToast(width, (float) 0.68), 64);
+      toast.setGravity(Gravity.BOTTOM, getXOffsetForToast(width, (float) 0.68), 64);
     } else if (displayDpi >= 960 && displayDpi < 1919) {
-      toast.setGravity(Gravity.BOTTOM| LEFT, getXOffsetForToast(width, (float) 0.37), 64);
+      toast.setGravity(Gravity.BOTTOM, getXOffsetForToast(width, (float) 0.37), 64);
     } else {
-      toast.setGravity(Gravity.BOTTOM| LEFT, getXOffsetForToast(width, (float) 0.25), 64);
+      toast.setGravity(Gravity.BOTTOM, getXOffsetForToast(width, (float) 0.25), 64);
     }
     toast.show();
 
